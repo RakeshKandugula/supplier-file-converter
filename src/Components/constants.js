@@ -74,6 +74,8 @@ export const multiplicationFactorOptions = [
   //const seasons = ["Continuity","2023 SS","2023 AW","2024 SS","2024 AW","Seasonal"];
   export  const seasons = [
     { value: 1, label: "Continuity" },
+    { value: 7, label: "2026 SS" },
+    { value: 8, label: "2026 AW" },
     { value: 5, label: "2025 SS" },
     { value: 6, label: "2025 AW" },
     { value: 500, label: "Seasonal" },
@@ -109,6 +111,40 @@ export const multiplicationFactorOptions = [
       { value: 15, label: "Drop 6"}
     ],
     6: [
+      { value: 1, label: "Pre Fall" },
+      { value: 2, label: "Autumn Main Collection" },
+      { value: 3, label: "Winter Collection"},
+      { value: 4, label: "Carry Over"},
+      { value: 5, label: "Flash / In-Season"},
+      { value: 6, label: "Crazy Days"},
+      { value: 7, label: "LC"},
+      { value: 8, label: "Christmas"},
+      { value: 9, label: "Seasonal Continuity"},
+      { value: 10, label: "Drop 7"},
+      { value: 11, label: "Drop 8"},
+      { value: 12, label: "Drop 9"},
+      { value: 13, label: "Drop 10"},
+      { value: 14, label: "Drop 11"},
+      { value: 15, label: "Drop 12"}
+    ],
+    7: [
+      { value: 1, label: "Pre Spring" },
+      { value: 2, label: "Spring Main Collection" },
+      { value: 3, label: "High Summer"},
+      { value: 4, label: "Carry Over"},
+      { value: 5, label: "Flash / In-Season"},
+      { value: 6, label: "Crazy Days"},
+      { value: 7, label: "LC"},
+      { value: 8, label: "EASTER"},
+      { value: 9, label: "Seasonal Continuity"},
+      { value: 10, label: "Drop 1"},
+      { value: 11, label: "Drop 2"},
+      { value: 12, label: "Drop 3"},
+      { value: 13, label: "Drop 4"},
+      { value: 14, label: "Drop 5"},
+      { value: 15, label: "Drop 6"}
+    ],
+    8: [
       { value: 1, label: "Pre Fall" },
       { value: 2, label: "Autumn Main Collection" },
       { value: 3, label: "Winter Collection"},
