@@ -7,15 +7,15 @@ function allowedFile(filename) {
 
 function sanitizeKey(key) {
   if (typeof key === 'string') {
-  return key.replace(/[\r\n]+/g, ' ').trim();
-}
-return '';
+    return key.replace(/[\r\n]+/g, ' ').trim();
+  }
+  return '';
 }
 
-function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender, ST_user, ticketType, poLocation, poType, poEDI, priceTag, ls, nb, na, mf, mls) {
+function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender, ST_user, ticketType, poLocation, poType, poEDI, priceTag, ls, nb, na, mf, mls, dealInfo) {
   const supplierName = supplier['value'];
   const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-  
+
   const sheetName = workbook.SheetNames[0];
   console.log(`Sheet name: ${sheetName}`);
 
@@ -23,20 +23,19 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
   if (supplierName === "onlinetextile") {
     // Start at row 12 for the specific supplier
     data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, range: 11 });
-  }else if (supplierName === "PVH") {
+  } else if (supplierName === "PVH") {
     data = XLSX.utils.sheet_to_json(workbook.Sheets["product info"], { header: 1 });
-  }else if (supplierName === "VAGABOND_FINLAND_OY") {
+  } else if (supplierName === "VAGABOND_FINLAND_OY") {
     data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, range: 2 });
-  }
-    else if (supplierName === "testsupplier1") {
+  } else if (supplierName === "testsupplier1") {
     console.log(`Sheet name: ${supplierName}`);
- 
-    data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, range: 1});
+
+    data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, range: 1 });
   }
   else {
     data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
   }
-  
+
   console.log('Raw data from sheet:', data);
 
   const root = xmlbuilder.create('STEP-ProductInformation', { encoding: 'UTF-8', headless: true });
@@ -44,11 +43,11 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
   root.att('ContextID', 'International');
 
   const Products = root.ele('Products');
-  
+
   // Sanitize headers from the first row of data
   const arrList = data[0] ? data[0].map(field => sanitizeKey(field)) : [];
   console.log('Sanitized headers:', arrList);
-  
+
   const finalListValue = [];
 
   // Start processing from row 1 (data[1]) and ignore rows with only formulas or empty cells
@@ -58,14 +57,14 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
 
     for (let j = 0; j < arrList.length; j++) {
       let cellValue = data[i][j];
-      
+
       // Remove unwanted characters such as \r, \n and other whitespace characters
       if (typeof cellValue === 'string') {
         cellValue = cellValue.replace(/[\r\n]/g, ' ').trim();
       }
 
       dictFinal[arrList[j]] = cellValue == null ? "" : cellValue;
-      
+
       if (cellValue !== undefined && cellValue !== "") {
         hasValue = true;  // Row has at least one value
       }
@@ -74,10 +73,10 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
     if (hasValue) {
       finalListValue.push(dictFinal);  // Only push rows that have some value
     }
-}
+  }
 
   console.log('Final list value:', finalListValue);
-  
+
   const Product1 = Products.ele('Product', { ParentID: "BuySideRoot", UserTypeID: "BuySideItem" });
   const Product2 = Product1.ele('Values');
   Product2.ele('Value', { AttributeID: "att_fields" }).txt(JSON.stringify(finalListValue));
@@ -101,6 +100,8 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
   const ticketTypeValue = ticketType ? ticketType : "";
   Product2.ele('Value', { AttributeID: "att_tool_tickettype" }).txt(ticketTypeValue);
   Product2.ele('Value', { AttributeID: "att_tool_brand" }).txt(brand ? brand.value : "");
+  Product2.ele('Value', { AttributeID: "att_tool_dealinfo" }).txt(dealInfo);
+
 
   const xmlString = root.end({ pretty: true });
 

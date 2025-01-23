@@ -30,6 +30,7 @@ function Upload() {
   const [multiplicationFactor, setMultiplicationFactor] = useState("");
   const [fileInputKey, setFileInputKey] = useState(Date.now());
   const formRef = useRef(null);  // Ref for form element
+  const [dealInfo, setDealInfo] = useState("");
 
   const resetForm = () => {
     setFile(null);
@@ -78,7 +79,7 @@ function Upload() {
       fileReader.onload = async (event) => {
         try {
           const arrayBuffer = event.target.result;
-          const result = convert(arrayBuffer, selectedSupplier, selectedBrand, buyer, selectedSeason, selectedPhase, lifestage, gender, ST_user, selectedTicketType, poLocation, poType, poEDI, priceTag, selectedLifestyleDetail, notBefore, notAfter, multiplicationFactor, lifestyle);
+          const result = convert(arrayBuffer, selectedSupplier, selectedBrand, buyer, selectedSeason, selectedPhase, lifestage, gender, ST_user, selectedTicketType, poLocation, poType, poEDI, priceTag, selectedLifestyleDetail, notBefore, notAfter, multiplicationFactor, lifestyle,dealInfo);
           
           if (result.success) {
             const xmlBlob = new Blob([result.xmlString], { type: 'application/xml' });
@@ -308,6 +309,15 @@ const handleBrandChange = (selectedOption) => {
                     onChange={(option) => setMultiplicationFactor(option ? option.value : null)}
                     placeholder="Select..."
                     isSearchable={true}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Po Exclusive Deal</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={dealInfo}
+                    onChange={(e) => setDealInfo(e.target.value)}
+                    placeholder="Enter Deal Info..."
                   />
                 </Form.Group>
               </Col>
