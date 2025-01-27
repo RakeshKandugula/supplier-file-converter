@@ -62,8 +62,8 @@ export const brands = {
     { value: "Other", label: "Other" }
   ],
   ADIDAS_SUOMI_OY: [
-    { value: "ADIDAS_SUOMI_OY(RTW)", label: "ADIDAS_SUOMI_OY(RTW)" },
-    { value: "ADIDAS_SUOMI_OY(Sports)", label: "ADIDAS_SUOMI_OY(Sports)" }
+    { value: "(RTW)", label: "ADIDAS_SUOMI_OY(RTW)" },
+    { value: "(Sports)", label: "ADIDAS_SUOMI_OY(Sports)" }
   ]
 };
 
