@@ -60,26 +60,26 @@ function Upload() {
     setFile(e.target.files[0]);
     setErrorMessage(null);
   };
-  
+
   const handleSubmit = async () => {
     // Check all mandatory fields
     if (!file || !selectedSupplier || !buyer || !selectedSeason) {
       setErrorMessage('Please fill out all the mandatory fields.');
       return;
     }
-  
+
     if (!allowedFile(file.name)) {
       setErrorMessage('Invalid file format. Please upload a .xlsx file.');
       return;
     }
-  
+
     try {
       const fileReader = new FileReader();
       fileReader.onload = async (event) => {
         try {
           const arrayBuffer = event.target.result;
           const result = convert(arrayBuffer, selectedSupplier, selectedBrand, buyer, selectedSeason, selectedPhase, lifestage, gender, ST_user, selectedTicketType, poLocation, poType, poEDI, priceTag, selectedLifestyleDetail, notBefore, notAfter, multiplicationFactor, lifestyle, dealInfo);
-          
+
           if (result.success) {
             // Check if the XML contains an empty att_fields value.
             if (result.xmlString.includes('<Value AttributeID="att_fields">[]</Value>')) {
@@ -127,7 +127,7 @@ function Upload() {
   const handleBrandChange = (selectedOption) => {
     setSelectedBrand(selectedOption);
   };
-  
+
   return (
     <Container className="bg-image">
       <Row className="justify-content-md-center mt-5">
@@ -249,9 +249,9 @@ function Upload() {
                 {/* Right Column Fields */}
                 <Form.Group className="mb-3">
                   <Form.Label>Ticket Type</Form.Label>
-                  <Form.Select 
-                    aria-label="Select Ticket Type" 
-                    onChange={(e) => setSelectedTicketType(e.target.value)} 
+                  <Form.Select
+                    aria-label="Select Ticket Type"
+                    onChange={(e) => setSelectedTicketType(e.target.value)}
                     value={selectedTicketType || ""}
                   >
                     <option>Select...</option>
