@@ -56,7 +56,6 @@ function Upload() {
     setFileInputKey(Date.now());
   };
 
-
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     setErrorMessage(null);
@@ -79,9 +78,14 @@ function Upload() {
       fileReader.onload = async (event) => {
         try {
           const arrayBuffer = event.target.result;
-          const result = convert(arrayBuffer, selectedSupplier, selectedBrand, buyer, selectedSeason, selectedPhase, lifestage, gender, ST_user, selectedTicketType, poLocation, poType, poEDI, priceTag, selectedLifestyleDetail, notBefore, notAfter, multiplicationFactor, lifestyle,dealInfo);
+          const result = convert(arrayBuffer, selectedSupplier, selectedBrand, buyer, selectedSeason, selectedPhase, lifestage, gender, ST_user, selectedTicketType, poLocation, poType, poEDI, priceTag, selectedLifestyleDetail, notBefore, notAfter, multiplicationFactor, lifestyle, dealInfo);
           
           if (result.success) {
+            // Check if the XML contains an empty att_fields value.
+            if (result.xmlString.includes('<Value AttributeID="att_fields">[]</Value>')) {
+              setErrorMessage('Error: File can\'t be delivered as it appears empty or unread.');
+              return;
+            }
             const xmlBlob = new Blob([result.xmlString], { type: 'application/xml' });
             const url = URL.createObjectURL(xmlBlob);
             const link = document.createElement('a');
@@ -118,13 +122,12 @@ function Upload() {
   const handleSupplierChange = (selectedOption) => {
     setSelectedSupplier(selectedOption);
     setSelectedBrand(null); // Reset brand selection when supplier changes
-};
+  };
 
-const handleBrandChange = (selectedOption) => {
+  const handleBrandChange = (selectedOption) => {
     setSelectedBrand(selectedOption);
-};
+  };
   
-
   return (
     <Container className="bg-image">
       <Row className="justify-content-md-center mt-5">
@@ -147,17 +150,17 @@ const handleBrandChange = (selectedOption) => {
                   />
                 </Form.Group>
                 {selectedSupplier && brandOptions.length > 0 && (
-            <Form.Group className="mb-3">
-                <Form.Label>{`${selectedSupplier.label}'s Brand`}</Form.Label>
-                <Select
-                    options={brandOptions}
-                    value={selectedBrand}
-                    onChange={handleBrandChange}
-                    placeholder="Select a brand..."
-                    isSearchable={true}
-                />
-            </Form.Group>
-        )}
+                  <Form.Group className="mb-3">
+                    <Form.Label>{`${selectedSupplier.label}'s Brand`}</Form.Label>
+                    <Select
+                      options={brandOptions}
+                      value={selectedBrand}
+                      onChange={handleBrandChange}
+                      placeholder="Select a brand..."
+                      isSearchable={true}
+                    />
+                  </Form.Group>
+                )}
                 <Form.Group className="mb-3">
                   <Form.Label>Buyer <span style={{ color: "red" }}>*</span></Form.Label>
                   <Form.Select aria-label="Select Buyer" onChange={(e) => setBuyer(e.target.value)} value={buyer} required>
@@ -247,15 +250,15 @@ const handleBrandChange = (selectedOption) => {
                 <Form.Group className="mb-3">
                   <Form.Label>Ticket Type</Form.Label>
                   <Form.Select 
-                  aria-label="Select Ticket Type" 
-                  onChange={(e) => setSelectedTicketType(e.target.value)} 
-                  value={selectedTicketType || ""}  // Ensure it defaults to an empty string if not set
-                >
-                  <option>Select...</option>
-                  {ticketTypes.map((ttype, index) => (
-                    <option key={index} value={ttype.value}>{ttype.label}</option>
-                  ))}
-                </Form.Select>
+                    aria-label="Select Ticket Type" 
+                    onChange={(e) => setSelectedTicketType(e.target.value)} 
+                    value={selectedTicketType || ""}
+                  >
+                    <option>Select...</option>
+                    {ticketTypes.map((ttype, index) => (
+                      <option key={index} value={ttype.value}>{ttype.label}</option>
+                    ))}
+                  </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>PO Location</Form.Label>
@@ -323,7 +326,7 @@ const handleBrandChange = (selectedOption) => {
               </Col>
             </Row>
           </Form>
-          <SubmitButton onClick={handleSubmit} />  {/* Use the SubmitButton component */}
+          <SubmitButton onClick={handleSubmit} />
         </Col>
       </Row>
     </Container>
