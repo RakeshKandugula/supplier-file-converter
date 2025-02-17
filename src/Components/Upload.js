@@ -330,7 +330,7 @@ function Upload() {
                     onChange={(e) => setPOType(e.target.value)}
                     value={poType}
                   >
-                    <option>{poTypes.map((type, index) => (
+                    {poTypes.map((type, index) => (
                       <option key={index} value={type}>
                         {type}
                       </option>
