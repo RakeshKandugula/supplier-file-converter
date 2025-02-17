@@ -13,7 +13,26 @@ function sanitizeKey(key) {
   return '';
 }
 
-function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender, ST_user, ticketType, poLocation, poType, poEDI, priceTag, ls, nb, na, mf, mls, dealInfo) {
+function convert(
+  arrayBuffer,
+  supplier,
+  brand,
+  buyer,
+  season,
+  phase,
+  cl,
+  gender,
+  ST_user,
+  ticketType,
+  poLocation,
+  poType,
+  poEDI,
+  priceTag,
+  nb,
+  na,
+  mf,
+  dealInfo
+) {
   const supplierName = supplier['value'];
   const workbook = XLSX.read(arrayBuffer, { type: 'array' });
 
@@ -30,10 +49,8 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
     data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, range: 2 });
   } else if (supplierName === "testsupplier1") {
     console.log(`Sheet name: ${supplierName}`);
-
     data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, range: 1 });
-  }
-  else {
+  } else {
     data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
   }
 
@@ -54,7 +71,7 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
   // Start processing from row 1 (data[1]) and ignore rows with only formulas or empty cells
   for (let i = 1; i < data.length; i++) {
     const dictFinal = {};
-    let hasValue = false;  // Flag to check if row has any non-empty values
+    let hasValue = false; // Flag to check if row has any non-empty values
 
     for (let j = 0; j < arrList.length; j++) {
       let cellValue = data[i][j];
@@ -67,12 +84,12 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
       dictFinal[arrList[j]] = cellValue == null ? "" : cellValue;
 
       if (cellValue !== undefined && cellValue !== "") {
-        hasValue = true;  // Row has at least one value
+        hasValue = true; // Row has at least one value
       }
     }
 
     if (hasValue) {
-      finalListValue.push(dictFinal);  // Only push rows that have some value
+      finalListValue.push(dictFinal); // Only push rows that have some value
     }
   }
 
@@ -92,8 +109,6 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
   Product2.ele('Value', { AttributeID: "att_tool_season" }).txt(season);
   Product2.ele('Value', { AttributeID: "att_tool_buyer" }).txt(buyer);
   Product2.ele('Value', { AttributeID: "att_tool_sendedi" }).txt(poEDI);
-  Product2.ele('Value', { AttributeID: "att_tool_lifestyle" }).txt(ls);
-  Product2.ele('Value', { AttributeID: "att_tool_mainlifestyle" }).txt(mls);
   Product2.ele('Value', { AttributeID: "att_tool_nbd" }).txt(nb);
   Product2.ele('Value', { AttributeID: "att_tool_nad" }).txt(na);
   Product2.ele('Value', { AttributeID: "att_tool_multifactor" }).txt(mf);
@@ -102,7 +117,6 @@ function convert(arrayBuffer, supplier, brand, buyer, season, phase, cl, gender,
   Product2.ele('Value', { AttributeID: "att_tool_tickettype" }).txt(ticketTypeValue);
   Product2.ele('Value', { AttributeID: "att_tool_brand" }).txt(brand ? brand.value : "");
   Product2.ele('Value', { AttributeID: "att_tool_dealinfo" }).txt(dealInfo);
-
 
   const xmlString = root.end({ pretty: true });
 

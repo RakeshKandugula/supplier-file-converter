@@ -201,7 +201,6 @@ export const multiplicationFactorOptions = [
 
     // Define phase values for other seasons as needed
   };  
-  export const lifestyles = ["Mens", "Womens","Kids","None"];
   export const lifestages = ["Adult", "Kids"];
   export const genders = ["Men", "Women", "Boys","Girls","Unisex"];
   export const ST_users = ["PROKING", "ABELKAR","LOREEGI","PAAJJOH","EXTSABA","SUKKSHA","KANDRAK","KLIMMAK","PIIPPI","HUTTING","NIKKJEN"];
@@ -217,44 +216,3 @@ export const multiplicationFactorOptions = [
   export const poTypes = ["AdHoc","CD","LC","PRE"];
   export const poEDIs = ["yes", "no"];
   export const orderPriceTags = ["yes", "no"];
-
-  export const lifestyleDetails = {
-    Womens: [
-      { value: "Casual", label: "Casual" },
-      { value: "Classic", label: "Classic" },
-      { value: "Coats and Outerwear", label: "Coats and Outerwear" },
-      { value: "Denim", label: "Denim" },
-      { value: "Sport", label: "Sport" },
-      { value: "Trend", label: "Trend" },
-      { value: "Contemporary", label: "Contemporary" },
-      { value: "Exclusive", label: "Exclusive" },
-      { value: "Jewellery Watches and Sunglasses", label: "Jewellery Watches and Sunglasses" },
-      { value: "Modern", label: "Modern" },
-      { value: "Womens Footwear", label: "Womens Footwear" },
-      { value: "Womens Handbags and Small Leathergoods", label: "Womens Handbags and Small Leathergoods" },
-      { value: "Womens Hosiery", label: "Womens Hosiery" },
-      { value: "Womens Lingerie", label: "Womens Lingerie" },
-      { value: "Womens Night and Loungewear", label: "Womens Night and Loungewear" },
-      { value: "Womens Soft Accessories", label: "Womens Soft Accessories" },
-      { value: "Womens Swimwear", label: "Womens Swimwear" }
-    ],
-    Mens: [
-      { value: "Casual", label: "Casual" },
-      { value: "Classic", label: "Classic" },
-      { value: "Coats and Outerwear", label: "Coats and Outerwear" },
-      { value: "Denim", label: "Denim" },
-      { value: "Designer", label: "Designer" },
-      { value: "Mens Accessories", label: "Mens Accessories" },
-      { value: "Mens Casual Trousers and Knitwear", label: "Mens Casual Trousers and Knitwear" },
-      { value: "Mens Footwear", label: "Mens Footwear" },
-      { value: "Mens Shirts and Ties", label: "Mens Shirts and Ties" },
-      { value: "Mens Underwear and Nightwear", label: "Mens Underwear and Nightwear" },
-      { value: "Premium", label: "Premium" },
-      { value: "Smart/Formal", label: "Smart/Formal" },
-      { value: "Sport", label: "Sport" },
-      { value: "Trend", label: "Trend" }
-    ],
-    Kids: [
-      { value: "ToFill", label: "ToFill" }
-    ]
-  };
