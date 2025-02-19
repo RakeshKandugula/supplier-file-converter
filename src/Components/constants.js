@@ -212,7 +212,7 @@ export const multiplicationFactorOptions = [
     {value: "SE", label: "SE"}
   ];
 
-  export const poLocations = ["Distribution Centre B&M", "Distribution Centre DR warehouse", "Helsinki Department Store", "Itis Department Store", "Jumbo Department Store", "Riga Department Store", "Tallinn Departmental Store", "Tampere Department Store", "Tapiola Department Store", "Turku Departmental Store"];
+  export const poLocations = ["Distribution Centre B&M", "Distribution Centre DR warehouse", "Helsinki Department Store", "Itis Department Store", "Jumbo Department Store", "Riga Department Store", "Tallinn Department Store", "Tampere Department Store", "Tapiola Department Store", "Turku Department Store"];
   export const poTypes = ["PRE","AdHoc","CD","LC"];
   export const poEDIs = ["Yes", "No"];
   export const orderPriceTags = ["Yes", "No"];
