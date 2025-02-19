@@ -17,7 +17,7 @@ function convert(
   arrayBuffer,
   supplier,
   brand,
-  assortmentLead,
+  buyer,
   season,
   phase,
   cl,
@@ -107,7 +107,7 @@ function convert(
   Product2.ele('Value', { AttributeID: "att_tool_polocation" }).txt(poLocation);
   Product2.ele('Value', { AttributeID: "att_tool_potype" }).txt(poType);
   Product2.ele('Value', { AttributeID: "att_tool_season" }).txt(season);
-  Product2.ele('Value', { AttributeID: "att_tool_buyer" }).txt(assortmentLead);
+  Product2.ele('Value', { AttributeID: "att_tool_buyer" }).txt(buyer);
   Product2.ele('Value', { AttributeID: "att_tool_sendedi" }).txt(poEDI);
   Product2.ele('Value', { AttributeID: "att_tool_nbd" }).txt(nb);
   Product2.ele('Value', { AttributeID: "att_tool_nad" }).txt(na);
