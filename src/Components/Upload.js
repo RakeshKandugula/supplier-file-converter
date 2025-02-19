@@ -187,10 +187,10 @@ function Upload() {
                 )}
                 <Form.Group className="mb-3">
                   <Form.Label>
-                    Buyer <span style={{ color: "red" }}>*</span>
+                    Assortment Lead <span style={{ color: "red" }}>*</span>
                   </Form.Label>
                   <Form.Select
-                    aria-label="Select Buyer"
+                    aria-label="Select Assortment Lead"
                     onChange={(e) => setBuyer(e.target.value)}
                     value={buyer}
                     required
@@ -386,7 +386,7 @@ function Upload() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Po Exclusive Deal</Form.Label>
+                  <Form.Label>PO Exclusive Deal</Form.Label>
                   <Form.Control
                     type="number"
                     value={dealInfo}
