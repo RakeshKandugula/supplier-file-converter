@@ -70,7 +70,7 @@ export const multiplicationFactorOptions = [
 
 
 
-  export const buyers = ["Anne Karhunen", "Antti Laiho", "Anu Kurki", "Eeva Siirama", "Eva Grondahl-Mykra", "Johanna Tarma", "Julia Koskilahti", "Katariina Ketola", "Kati Karhunsaari", "Kati Lewis-Sjoberg", "Kristiina Kuuskoski", "Laura Oksanen", "Maisa Jaansivu", "Michele Eller", "Minna Fichera", "Paivi Aho", "Paivi Jordas", "Pete Rahikainen", "Tiina Kuusvuori", "Tuula Luomi", "Ulrika Hedman"];
+  export const assortmentLeads = ["Anne Karhunen", "Antti Laiho", "Anu Kurki", "Eeva Siirama", "Eva Grondahl-Mykra", "Johanna Tarma", "Julia Koskilahti", "Katariina Ketola", "Kati Karhunsaari", "Kati Lewis-Sjoberg", "Kristiina Kuuskoski", "Laura Oksanen", "Maisa Jaansivu", "Michele Eller", "Minna Fichera", "Paivi Aho", "Paivi Jordas", "Pete Rahikainen", "Tiina Kuusvuori", "Tuula Luomi", "Ulrika Hedman"];
   //const seasons = ["Continuity","2023 SS","2023 AW","2024 SS","2024 AW","Seasonal"];
   export  const seasons = [
     { value: 1, label: "Continuity" },
