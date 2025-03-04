@@ -13,60 +13,59 @@ export const multiplicationFactorOptions = [
 ];
 
 
-  export const suppliers = [
-    { value: "Bestseller", label: "Bestseller" },
-    { value: "Vila", label: "Vila" },
-    { value: "PVH", label: "PVH" },
-    { value: "Ralph_Lauren", label: "Ralph_Lauren"},
-    { value: "Acne_Studios", label: "Acne_Studios"},
-    { value: "Second_Female", label: "Second_Female"},
-    { value: "Reima", label: "Reima"},
-    { value: "Nanso", label: "Nanso"},
-    { value: "MossCPH", label: "MossCPH"},
-    { value: "Molo", label: "Molo"},
-    { value: "Modstrom", label: "Modstrom"},
-    { value: "Metsola", label: "Metsola"},
-    { value: "Mayoral", label: "Mayoral"},
-    { value: "Marimekko", label: "Marimekko"},
-    { value: "Marella", label: "Marella"},
-    { value: "Marc_Opolo", label: "Marc_Opolo"},
-    { value: "Makia", label: "Makia"},
-    { value: "Liewood", label: "Liewood"},
-    { value: "Kaiko", label: "Kaiko"},
-    { value: "Armani", label: "Armani"},
-    { value: "Didriksons", label: "Didriksons"},
-    { value: "ACC3SS", label: "ACC3SS"},
-    { value: "Sanetta", label: "Sanetta"},
-    { value: "KCA", label: "KCA"},
-    { value: "Mini_Rodini", label: "Mini_Rodini"},
-    { value: "Gestuz", label: "Gestuz"},
-    { value: "CWF", label: "CWF"},
-    { value: "PRO_FASHION", label: "GANT"},
-    { value: "Adidas_Suomi(Sports)", label: "Adidas_Suomi(Sports)"},
-    { value: "Adidas_Suomi(RTW)", label: "Adidas_Suomi(RTW)"},
-    { value:"onlinetextile", label:"onlinetextile"},
-    { value:"VAGABOND_FINLAND_OY", label:"VAGABOND_FINLAND_OY"},
-    { value:"DR_MARTENS_AIRWAIR_WHOLESALE_LIMITED", label:"DR_MARTENS_AIRWAIR_WHOLESALE_LIMITED"},
-    {value:"testsupplier1", label: "testsupplier1"},
-    {value:"testsupplier2", label: "testsupplier2"},
-    {value:"SAND_CPH_A/S", label: "SAND_CPH_A/S"}
-  ];
+export const suppliers = [
+  { value: "ACC3SS_OY", label: "ACC3SS_OY" },
+  { value: "ACNE_STUDIOS_AB", label: "ACNE_STUDIOS_AB" },
+  { value: "ADIDAS_SUOMI_OY", label: "ADIDAS_SUOMI_OY" },
+  { value: "GIORGIO_ARMANI_S.P.A.", label: "GIORGIO_ARMANI_S.P.A." },
+  { value: "BESTSELLER_WHOLESALE_FINLAND_OY", label: "BESTSELLER_WHOLESALE_FINLAND_OY" },
+  { value: "C.W.F._CHILDREN_WORLDWIDE_FASHION", label: "C.W.F._CHILDREN_WORLDWIDE_FASHION" },
+  { value: "DIDRIKSONS_FINLAND_OY", label: "DIDRIKSONS_FINLAND_OY" },
+  { value: "DK_COMPANY_FINLAND_OY", label: "DK_COMPANY_FINLAND_OY" },
+  { value: "KAIKO_CLOTHING_COMPANY_OY", label: "KAIKO_CLOTHING_COMPANY_OY" },
+  { value: "KNOWLEDGE_COTTON_APPAREL_A/S", label: "KNOWLEDGE_COTTON_APPAREL_A/S" },
+  { value: "LIEWOOD_A/S", label: "LIEWOOD_A/S" },
+  { value: "MAKIA_CLOTHING_OY", label: "MAKIA_CLOTHING_OY" },
+  { value: "Marc_OPolo_International_GmbH", label: "Marc_OPolo_International_GmbH" },
+  { value: "DEDIMAX_S.R.L.", label: "DEDIMAX_S.R.L." },
+  { value: "MARIMEKKO_OYJ", label: "MARIMEKKO_OYJ" },
+  { value: "MAYORAL_MODA_INFANTIL_SAU", label: "MAYORAL_MODA_INFANTIL_SAU" },
+  { value: "METSOLA_LIFESTYLE_OY", label: "METSOLA_LIFESTYLE_OY" },
+  { value: "MINI_RODINI_AB", label: "MINI_RODINI_AB" },
+  { value: "MODSTROM_APS", label: "MODSTROM_APS" },
+  { value: "MOLO_A/S", label: "MOLO_A/S" },
+  { value: "MOSS_CPH_A/S", label: "MOSS_CPH_A/S" },
+  { value: "NANSO_GROUP_OY", label: "NANSO_GROUP_OY" },
+  { value: "ONLINE_TEXTILE_SOLUTIONS_A/S", label: "ONLINE_TEXTILE_SOLUTIONS_A/S" },
+  { value: "PRO_FASHION_OY", label: "PRO_FASHION_OY" },
+  { value: "PVH_FINLAND_OY", label: "PVH_FINLAND_OY" },
+  { value: "Ralph_Lauren", label: "Ralph_Lauren" },
+  { value: "SAND_CPH_A/S", label: "SAND_CPH_A/S" },
+  { value: "SANETTA,__GEBRUDER_AMMANN_GMBH_&_CO._KG", label: "SANETTA,__GEBRUDER_AMMANN_GMBH_&_CO._KG" },
+  { value: "SECOND_FEMALE_APS", label: "SECOND_FEMALE_APS" },
+  { value: "testsupplier1", label: "testsupplier1" },
+  { value: "testsupplier2", label: "testsupplier2" },
+  { value: "VAGABOND_FINLAND_OY", label: "VAGABOND_FINLAND_OY" },
+  { value: "VF_SCANDINAVIA_A/S", label: "VF_SCANDINAVIA_A/S" },
+  { value: "VILA_FINLAND_OY", label: "VILA_FINLAND_OY" }
+];
 
 
-  export const brands = {
-    VF_Scandinavia: [
-      {
-      value:"Timberland",label:"Timberland"},
-      {value:"Eastpak",label:"Eastpak"
-    }
+
+export const brands = {
+  "VF_SCANDINAVIA_A/S": [
+    { value: "Timberland", label: "Timberland" },
+    { value: "Eastpak", label: "Eastpak" }
   ],
-  Marc_Opolo: [
-    {
-      value:"Denim",label:"Denim"},
-     { value:"Other",label:"Other"
-    }
+  Marc_OPolo_International_GmbH: [
+    { value: "Denim", label: "Denim" },
+    { value: "Other", label: "Other" }
+  ],
+  ADIDAS_SUOMI_OY: [
+    { value: "(RTW)", label: "ADIDAS_SUOMI_OY(RTW)" },
+    { value: "(Sports)", label: "ADIDAS_SUOMI_OY(Sports)" }
   ]
-  };
+};
 
 
 
