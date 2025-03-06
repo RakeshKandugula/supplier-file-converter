@@ -34,7 +34,7 @@ function Upload() {
   const [gender, setGender] = useState("");
   const [ST_user, setSTUser] = useState("");
   const [selectedTicketType, setSelectedTicketType] = useState("");
-  const [poLocation, setPOLocation] = useState("");
+  const [poLocation, setPOLocation] = useState("Distribution Centre B&M");
   const [poType, setPOType] = useState("PRE");
   const [poEDI, setPOEDI] = useState("No");
   const [priceTag, setPriceTag] = useState("No");
@@ -315,7 +315,6 @@ function Upload() {
                     onChange={(e) => setPOLocation(e.target.value)}
                     value={poLocation}
                   >
-                    <option>Select...</option>
                     {poLocations.map((location, index) => (
                       <option key={index} value={location}>
                         {location}
