@@ -36,8 +36,8 @@ function Upload() {
   const [selectedTicketType, setSelectedTicketType] = useState("");
   const [poLocation, setPOLocation] = useState("");
   const [poType, setPOType] = useState("PRE");
-  const [poEDI, setPOEDI] = useState("");
-  const [priceTag, setPriceTag] = useState("");
+  const [poEDI, setPOEDI] = useState("No");
+  const [priceTag, setPriceTag] = useState("No");
   const [notBefore, setNotBefore] = useState("");
   const [notAfter, setNotAfter] = useState("");
   const [multiplicationFactor, setMultiplicationFactor] = useState("");
@@ -344,7 +344,6 @@ function Upload() {
                     onChange={(e) => setPOEDI(e.target.value)}
                     value={poEDI}
                   >
-                    <option>Select...</option>
                     {poEDIs.map((edi, index) => (
                       <option key={index} value={edi}>
                         {edi}
@@ -359,7 +358,6 @@ function Upload() {
                     onChange={(e) => setPriceTag(e.target.value)}
                     value={priceTag}
                   >
-                    <option>Select...</option>
                     {orderPriceTags.map((tag, index) => (
                       <option key={index} value={tag}>
                         {tag}
