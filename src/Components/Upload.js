@@ -50,12 +50,12 @@ function Upload() {
     setErrorMessage(null);
     setSelectedSupplier(null);
     setSelectedBrand("");
-    setBuyer(null);
+    setBuyer("");
     setSelectedSeason("");
     setSelectedPhase("");
-    setLifestage(null);
+    setLifestage("");
     setGender("");
-    setSTUser(null);
+    setSTUser("");
     setSelectedTicketType("");
     setPOLocation("Distribution Centre B&M");
     setPOType("PRE");
