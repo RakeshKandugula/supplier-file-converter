@@ -47,7 +47,8 @@ export const suppliers = [
   { value: "testsupplier2", label: "testsupplier2" },
   { value: "VAGABOND_FINLAND_OY", label: "VAGABOND_FINLAND_OY" },
   { value: "VF_SCANDINAVIA_A/S", label: "VF_SCANDINAVIA_A/S" },
-  { value: "VILA_FINLAND_OY", label: "VILA_FINLAND_OY" }
+  { value: "VILA_FINLAND_OY", label: "VILA_FINLAND_OY" },
+  { value: "LONGCHAMP_SAS", label: "LONGCHAMP_SAS" }
 ];
 
 
