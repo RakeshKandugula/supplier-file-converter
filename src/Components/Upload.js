@@ -21,6 +21,9 @@ import {
 } from './constants';
 import SubmitButton from './SubmitButton'; // Import the new component
 import '../styles/styles.css';
+import { getPresignedUrl, uploadExcelToS3 } from './excelToS3';
+
+
 
 function Upload() {
   const [file, setFile] = useState(null);
@@ -82,6 +85,15 @@ function Upload() {
 
     if (!allowedFile(file.name)) {
       setErrorMessage('Invalid file format. Please upload a .xlsx file.');
+      return;
+    }
+
+    try {
+      const presignedUrl = await getPresignedUrl(buyer, selectedSupplier.value, file.name);
+  
+      await uploadExcelToS3(file, presignedUrl);
+    } catch (error) {
+      setErrorMessage(`Upload error: ${error.message}`);
       return;
     }
 
