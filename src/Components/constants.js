@@ -49,7 +49,8 @@ export const suppliers = [
   { value: "VF_SCANDINAVIA_A/S", label: "VF_SCANDINAVIA_A/S" },
   { value: "VILA_FINLAND_OY", label: "VILA_FINLAND_OY" },
   { value: "LONGCHAMP_SAS", label: "LONGCHAMP_SAS" },
-  { value: "MULBERRY_GROUP_PLC", label: "MULBERRY_GROUP_PLC" }
+  { value: "MULBERRY_GROUP_PLC", label: "MULBERRY_GROUP_PLC" },
+  { value: "REIMA_EUROPE_OY_/_PL_VAT", label: "REIMA_EUROPE_OY_/_PL_VAT" }
 ];
 
 
