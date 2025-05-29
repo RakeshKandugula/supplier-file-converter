@@ -11,7 +11,7 @@ function ExcelToXmlExplanationPage() {
             <Col md={6}>
               <Card className="mb-4 p-4 bg-light rounded shadow">
                 <Card.Body>
-                  <p>This tool converts supplier colour hierarchy files to importable XML. Here's how it works:</p>
+                  <p>This tool converts  supplier colour hierarchy files to importable XML. Here's how it works:</p>
                   <ol>
                     <li>The user uploads an Excel file (.xlsx format).</li>
                   </ol>
