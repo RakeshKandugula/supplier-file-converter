@@ -160,6 +160,24 @@ function Upload() {
 
   const brandOptions = selectedSupplier ? brands[selectedSupplier.value] || [] : [];
 
+  const handlePOLocationChange = (selectedOption) => {
+    setPOLocation(selectedOption);
+    if (selectedOption === "Distribution Centre DR warehouse") {
+      setPOType("CD");
+  } else if (["Distribution Centre B&M", "Helsinki Department Store", "Itis Department Store", "Jumbo Department Store", "Riga Department Store", "Tallinn Department Store", "Tampere Department Store", "Tapiola Department Store", "Turku Department Store"].includes(selectedOption)) {
+      setPOType("PRE");
+  }
+  };
+
+  const handlePOTypeChange = (selectedOption) => {
+    setPOType(selectedOption);
+    if (selectedOption === "CD" && poLocation === "Distribution Centre B&M") {
+      setPOLocation("Distribution Centre DR warehouse");
+  } else if (selectedOption === "PRE" && poLocation === "Distribution Centre DR warehouse") {
+      setPOLocation("Distribution Centre B&M");
+  }
+  };
+
   return (
     <Container className="bg-image">
       <Row className="justify-content-md-center mt-5">
@@ -315,7 +333,7 @@ function Upload() {
                   <Form.Label>PO Location</Form.Label>
                   <Form.Select
                     aria-label="Select PO Location"
-                    onChange={(e) => setPOLocation(e.target.value)}
+                    onChange={(e) => handlePOLocationChange(e.target.value)}
                     value={poLocation}
                   >
                     {poLocations.map((location, index) => (
@@ -329,7 +347,7 @@ function Upload() {
                   <Form.Label>PO Type</Form.Label>
                   <Form.Select
                     aria-label="Select PO Type"
-                    onChange={(e) => setPOType(e.target.value)}
+                    onChange={(e) => handlePOTypeChange(e.target.value)}
                     value={poType}
                   >
                     {poTypes.map((type, index) => (
