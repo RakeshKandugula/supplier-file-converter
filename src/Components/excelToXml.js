@@ -51,7 +51,7 @@ function convert(
     data = XLSX.utils.sheet_to_json(workbook.Sheets["DETAIL"], { header: 1 });
   } else if (supplierName === "MULBERRY_GROUP_PLC") {
     data = XLSX.utils.sheet_to_json(workbook.Sheets["EAN with Measurements"], { header: 1 });
-  } else if (supplierName === "testsupplier1") {
+  } else if (supplierName === "JOUTSEN_FINLAND_OY") {
     console.log(`Sheet name: ${supplierName}`);
     data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, range: 1 });
   } else {
